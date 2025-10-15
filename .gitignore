@@ -1,7 +1,12 @@
 # параметры для предпроцессинга
 data/preprocessing
 
-# csv файлы
-data/economy.csv
-data/Clean_Dataset.csv
-data/business.csv
+# чистые датасеты
+data/dataset
+
+# датасеты с результатами
+data/result
+
+# всякий муссор
+.venv
+__pycache__

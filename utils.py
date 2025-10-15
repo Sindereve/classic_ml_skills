@@ -160,7 +160,7 @@ def full_metrics(y_true, y_pred, is_show_terminal=True):
 
 
 
-class ModelsHistory():
+class ModelsRegressionHistory():
     
     def __init__(self):
         self.models = []
