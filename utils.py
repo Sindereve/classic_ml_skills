@@ -2,11 +2,32 @@ import pandas as pd
 import numpy as np
 import os
 import sklearn
+from typing import Optional
 from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score, mean_absolute_percentage_error, mean_squared_log_error
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score, roc_auc_score, log_loss
 
-
 import pickle
+
+PATH_DATASET_REG_TASK = 'data\\dataset\\regression\\Clean_Dataset.csv'
+PATH_DATASET_CLS_TASK = 'data\\dataset\\classification\\diabetes_dataset.csv'
+
+def load_data_reg_task() -> pd.DataFrame:
+    '''
+    Загрузка данных для задачи регрессии
+    '''
+    # загрузка данных
+    data = pd.read_csv(PATH_DATASET_REG_TASK)
+    # убираем не нужный столбик с индексами
+    data = data.drop(data.columns[0], axis=1)
+    return data
+
+def load_data_cls_task() -> pd.DataFrame:
+    '''
+    Загрузка данных для задачи классификации
+    '''
+    # загрузка данных
+    data = pd.read_csv(PATH_DATASET_CLS_TASK)
+    return data
 
 def get_info_unique(data, select_dtype_include = 'object'):
     """
@@ -19,10 +40,12 @@ def get_info_unique(data, select_dtype_include = 'object'):
         print(f"| {column_unique}")
     print("==="*30)
 
-
 class PreprocessingDataRegInNumber():
-    def __init__(self, df: pd.DataFrame, path_dir_w=None):
-        self._df = df.copy()
+    def __init__(self, df: Optional[pd.DataFrame] = None, path_dir_w: Optional[str] = None):
+        if df:
+            self._df = df.copy()
+        else:
+            self._df = load_data_reg_task()
 
         self.path_dir_w = path_dir_w
         # если есть папка с обученными весами
@@ -136,8 +159,11 @@ class PreprocessingDataRegInNumber():
         self._df = self._df.drop("flight", axis=1)
 
 class PreprocessingDataClsInNumber():
-    def __init__(self, df: pd.DataFrame, path_dir_w=None):
-        self._df = df.copy()
+    def __init__(self, df: Optional[pd.DataFrame] = None, path_dir_w: Optional[str] = None):
+        if df:
+            self._df = df.copy()
+        else:
+            self._df = load_data_cls_task()
 
         self.path_dir_w = path_dir_w
         if not self.path_dir_w:
