@@ -22,3 +22,7 @@ def raw_data_for_kaggle(name_data: str = "mohankrishnathalla/diabetes-health-ind
     api.dataset_download_files(name_data, path=target_dir, unzip=True)
     print(f'Dataset: {name_data}')
     print(f'Save in dir: {target_dir}')
+
+if __name__ == '__main__':
+    raw_data_for_kaggle()
+    
