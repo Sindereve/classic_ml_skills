@@ -15,7 +15,7 @@ def raw_data_for_kaggle(name_data: str = "mohankrishnathalla/diabetes-health-ind
     if target_dir is None:
         current_file_dir = os.path.dirname(os.path.abspath(__file__))
         parent_dir = os.path.dirname(current_file_dir)
-        target_dir = os.path.join(parent_dir, 'data', 'res')
+        target_dir = os.path.join(parent_dir, 'data', 'raw')
 
     os.makedirs(target_dir, exist_ok=True)
 
