@@ -8,38 +8,6 @@ from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_sc
 
 import pickle
 
-PATH_DATASET_REG_TASK = 'data\\dataset\\regression\\Clean_Dataset.csv'
-PATH_DATASET_CLS_TASK = 'data\\dataset\\classification\\diabetes_dataset.csv'
-
-def load_data_reg_task() -> pd.DataFrame:
-    '''
-    Загрузка данных для задачи регрессии
-    '''
-    # загрузка данных
-    data = pd.read_csv(PATH_DATASET_REG_TASK)
-    # убираем не нужный столбик с индексами
-    data = data.drop(data.columns[0], axis=1)
-    return data
-
-def load_data_cls_task() -> pd.DataFrame:
-    '''
-    Загрузка данных для задачи классификации
-    '''
-    # загрузка данных
-    data = pd.read_csv(PATH_DATASET_CLS_TASK)
-    return data
-
-def get_info_unique(data, select_dtype_include = 'object'):
-    """
-        Получаем количество уникальных значений в фиче и их значения
-    """
-    for column in data.select_dtypes(include=select_dtype_include).columns:
-        column_unique = data[column].unique()
-        print("==="*30)
-        print(f"| {column:15} (count:{len(column_unique):3})")
-        print(f"| {column_unique}")
-    print("==="*30)
-
 class PreprocessingDataRegInNumber():
     def __init__(self, df: Optional[pd.DataFrame] = None, path_dir_w: Optional[str] = None):
         if df:

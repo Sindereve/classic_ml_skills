@@ -3,7 +3,7 @@
 __pycache__
 
 # Уберём данные, чтоб не засорять git
-*/data/preprocessing_w/
+*/data/processed/
 */data/raw/
 */data/res/
 *.csv
