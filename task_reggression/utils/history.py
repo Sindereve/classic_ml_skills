@@ -71,8 +71,8 @@ class ModelsRegressionHistory():
                 "Модели": [type(model).__name__ for model in self.models],
                 "Класс модели": self.tag_models,
                 "Параметры модели": self.params_models,
+                "Заметки": self.notes_models,
                 **dict(zip(metrics_name, zip(*self.metrics_models))),
-                "Заметки": self.notes_models
             }
         )
 
