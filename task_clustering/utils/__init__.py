@@ -5,9 +5,9 @@ sys.path.append(current_dir)
 
 from download import raw_data_for_kaggle
 from preprocessing import print_info_unique_vals, load_processed_data
-from history import MethodsClusteringHistory
+from metrics import all_check_info
 
 __all__ = [
     'raw_data_for_kaggle', 'print_info_unique_vals',
-    'load_processed_data', 'MethodsClusteringHistory'
+    'load_processed_data', 'all_check_info'
 ]
