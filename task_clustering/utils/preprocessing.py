@@ -19,9 +19,5 @@ def load_processed_data() -> List[DataFrame]:
         Returns:
             X_train, X_test, y_train, y_test
     """
-    X_train = pd.read_csv('../data/processed/X_train.csv')
-    X_test = pd.read_csv('../data/processed/X_test.csv')
-    y_train = pd.read_csv('../data/processed/y_train.csv')
-    y_test = pd.read_csv('../data/processed/y_test.csv')
-    return [X_train, X_test, y_train, y_test]
+    return pd.read_csv('../data/processed/clustering.csv')
 
