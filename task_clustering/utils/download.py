@@ -1,7 +1,7 @@
 import os
 from kaggle.api.kaggle_api_extended import KaggleApi
 
-def raw_data_for_kaggle(name_data: str = "imakash3011/customer-personality-analysis",
+def raw_data_for_kaggle(name_data: str = "ranaghulamnabi/bmw-car-dataset",
                         target_dir: str = None) -> None:
     """
         Скачиваем dataset
