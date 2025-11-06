@@ -321,7 +321,7 @@ def all_check_info(
         print(f"\n   Кластер {cluster}: {name}")
         print(f"      Размер: {len(cluster_data)} автомобилей ({len(cluster_data)/len(df)*100:.1f}%)")
         if len(cluster_data) > 0:
-            print(f"      Средняя цена: £{cluster_data['price'].mean():.0f}")
+            print(f"      Средняя цена: {cluster_data['price'].mean():.0f}")
             print(f"      Средний год: {cluster_data['year'].mean():.0f}")
             print(f"      Средний пробег: {cluster_data['mileage'].mean():.0f} миль")
 
